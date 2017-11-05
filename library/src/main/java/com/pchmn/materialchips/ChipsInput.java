@@ -34,16 +34,13 @@ import com.pchmn.materialchips.views.ScrollViewMaxHeight;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class ChipsInput extends ScrollViewMaxHeight {
 
     private static final String TAG = ChipsInput.class.toString();
     // context
     private Context mContext;
     // xml element
-    @BindView(R2.id.chips_recycler) RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     // adapter
     private ChipsAdapter mChipsAdapter;
     // attributes
@@ -95,8 +92,8 @@ public class ChipsInput extends ScrollViewMaxHeight {
     private void init(AttributeSet attrs) {
         // inflate filterableListLayout
         View rootView = inflate(getContext(), R.layout.chips_input, this);
-        // butter knife
-        ButterKnife.bind(this, rootView);
+
+        mRecyclerView = rootView.findViewById(R.id.chips_recycler);
 
         initEditText();
 
